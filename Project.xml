@@ -19,10 +19,13 @@
 	<set name="BUILD_DIR" value="export/release" unless="debug" />
 	<source path="source" />
 	
-	<assets path="assets/default" /> <!-- Embed the default group because it's important -->
-	<assets path="assets" type="template" />
-	<assets path="songs" type="template" />
-	<assets path="data" type="template" />
+
+	<library name="assets" type="zip" preload="false" />
+	<assets path="assets/default" library="assets" /> <!-- Embed the default group because it's important -->
+	<assets path="assets" type="template" library="assets" />
+	<assets path="songs" type="template" library="assets" />
+	<assets path="data" type="template" library="assets" />
+
 
 	<!-- _______________________________ Libraries ______________________________ -->
 
@@ -36,6 +39,8 @@
 
 	<!-- Discord Rich Presence support -->
 	<haxelib name="discord_rpc" />
+	<!-- Required for loading FWADs (Mod Packages) -->
+	<haxelib name="format"/>
 
 	<!-- ______________________________ Haxedefines _____________________________ -->
 

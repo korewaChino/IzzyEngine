@@ -6,6 +6,7 @@ import lime.utils.Assets;
 import sys.io.File;
 #if desktop
 import sys.FileSystem;
+import FWad;
 #end
 
 enum Difficulty

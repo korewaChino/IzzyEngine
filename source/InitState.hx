@@ -20,7 +20,6 @@ class InitState extends FlxState
 {
 	var splash:FlxSprite;
 	var text:FlxText;
-
 	var framePostDraw:Bool = false;
 
 	override public function create():Void
@@ -32,7 +31,6 @@ class InitState extends FlxState
 		splash.y -= 30;
 		splash.antialiasing = true;
 		add(splash);
-
 		text = new FlxText(0, 0, 0, "Loading...");
 		text.setFormat("_sans", 24, FlxColor.WHITE, CENTER);
 		text.updateHitbox();

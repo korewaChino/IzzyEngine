@@ -12,6 +12,7 @@ import openfl.events.UncaughtErrorEvent;
 import sys.FileSystem;
 import sys.io.File;
 import sys.io.Process;
+import FWad;
 
 class Main extends Sprite
 {
@@ -27,12 +28,12 @@ class Main extends Sprite
 	public function new()
 	{
 		super();
-
+		FWad.Args.showArgs();
+		FWad.loadWad(FWad.Args.args[0]);
 		Lib.current.loaderInfo.uncaughtErrorEvents.addEventListener(UncaughtErrorEvent.UNCAUGHT_ERROR, onCrash);
 
 		// Print game name and information to system console
 		Sys.println(Lib.application.meta["name"] + " v" + Lib.application.meta["version"]);
-
 		RichPresence.startRichPresence();
 
 		game = new FlxGame(1280, 720, InitState, 1, normalFps, normalFps, true);

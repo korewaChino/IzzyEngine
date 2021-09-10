@@ -9,6 +9,7 @@ import openfl.media.Sound;
 import openfl.utils.Assets;
 import sys.FileSystem;
 import sys.io.File;
+import FWad;
 
 class AssetHelper
 {
@@ -16,12 +17,14 @@ class AssetHelper
 	{
 		switch (type)
 		{
+			
 			case IMAGE:
 				return "assets/" + group + "/images/" + path;
 			case SOUND:
 				return "assets/" + group + "/sounds/" + path;
 			case MUSIC:
 				return "assets/" + group + "/music/" + path;
+
 			default:
 				return "";
 		}
@@ -43,10 +46,12 @@ class AssetHelper
 				{
 					case IMAGE:
 						return FlxG.bitmap.get(actualPath);
-					case SOUND, MUSIC:
-						return Assets.cache.getSound(actualPath);
+					case SOUND:
+						return Assets.cache.getSound(SOUND);
+					case MUSIC:
+						return Assets.getLibrary(MUSIC);
 					default:
-						return null;
+						return Assets.getLibrary(Args.args[0]);
 				}
 			}
 			else if (Assets.exists(actualPath)) // Check if it exists in the embedded assets library
