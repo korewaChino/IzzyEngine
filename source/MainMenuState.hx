@@ -240,10 +240,12 @@ class MainMenuState extends MusicBeatState
 	{
 		switch (options[optionSelection])
 		{
-			case "story mode", "options":
+			case "story mode":
 				FlxG.switchState(new TitleState());
 			case "freeplay":
 				FlxG.switchState(new FreeplayState());
+			case "options":
+				FlxG.switchState(new ConfigState());
 		}
 	}
 }
